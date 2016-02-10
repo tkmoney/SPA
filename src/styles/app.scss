@@ -1,0 +1,135 @@
+@import 'text';
+
+html, body, .wrapper{
+	height: 100%;
+}
+
+body {
+    background: #c0c0;
+}
+
+#app {
+	height: 100%;
+	width: 75%;
+	margin: 0 auto;
+}
+
+.menu{
+	position: absolute;
+	display: flex;
+	align-content: flex-end;
+	height: 75px;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	z-index: 1;
+
+	.profilepic{
+		min-width: 75px;
+		background-size: contain;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+	}
+
+	p{
+		margin:0;
+		padding:0;
+	}
+
+}
+
+.parent{
+	display: flex;
+	align-items: center;
+	height: 100%;
+	transform-style: preserve-3d;
+	perspective: 750px;
+
+	> div {
+		flex-grow: 1;
+	}
+}
+
+.widget {
+	margin: 10px;
+	text-align: center;
+	height: 35%;
+	position: relative;
+
+	> div {
+		border: 1px solid #333;
+		position: absolute;
+		left: 0;
+		top:0;
+		height:100%;
+		width:100%;
+		-moz-backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		transition-property:all;
+		transition-duration: 0.5s;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		> div {
+			flex-grow:1;
+			display: flex;
+			flex-direction: column;
+		}
+
+	}
+
+	.loggedout_content{
+		transform: rotateY(0deg);
+	}
+
+	.loggedin_content{
+		transform: rotateY(180deg);
+	}
+
+	&.loggedin{
+		.loggedout_content{
+			transform: rotateY(-180deg);
+		}
+		.loggedin_content{
+			transform: rotateY(0deg);
+		}
+	}
+
+
+	&:nth-child(1){
+		> div{
+			transition-delay:0.1s;
+		}
+	}
+
+	&:nth-child(2){
+		> div{
+			transition-delay:0.2s;
+		}
+	}
+
+	&:nth-child(3){
+		> div{
+			transition-delay:0.3s;
+		}
+	}
+
+}
+
+.timer{
+	.timeRemaining{
+		font-size: 35px;
+	}
+	.timeInput{
+		font-size: 11px;
+	}
+}
+
+
+
+
+
